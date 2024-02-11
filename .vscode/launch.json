@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/funfa/Desktop/RateNAlbum/Computer-Network-Lab/SocketProgramming",
-      "program": "c:/Users/funfa/Desktop/RateNAlbum/Computer-Network-Lab/SocketProgramming/build/Debug/outDebug",
+      "cwd": ".",
+      "program": "build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

@@ -1,68 +1,71 @@
-#include <netinet/in.h>
+// server.c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/socket.h>
 #include <unistd.h>
-#define PORT 8080
-int main(int argc, char const* argv[])
-{
-    int server_fd, new_socket;
-    ssize_t valread;
-    struct sockaddr_in address;
-    int opt = 1;
-    socklen_t addrlen = sizeof(address);
-    char buffer[1024] = { 0 };
-    char* hello = "Hello from server";
- 
-    // Creating socket file descriptor
-    if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
-        perror("socket failed");
+#include <arpa/inet.h>
+
+#define PORT 6000
+#define BUFFER_SIZE 1024
+
+int main() {
+    int server_socket, client_socket;
+    struct sockaddr_in server_addr, client_addr;
+    char buffer[BUFFER_SIZE] = {0};
+
+    // Create socket
+    if ((server_socket = socket(AF_INET, SOCK_STREAM, 0)) == 0) {
+        perror("Socket creation failed");
         exit(EXIT_FAILURE);
     }
- 
-    // Forcefully attaching socket to the port 8080
-    if (setsockopt(server_fd, SOL_SOCKET,
-                   SO_REUSEADDR | SO_REUSEPORT, &opt,
-                   sizeof(opt))) {
-        perror("setsockopt");
+
+    // Set up server address structure
+    server_addr.sin_family = AF_INET;
+    server_addr.sin_addr.s_addr = INADDR_ANY;
+    server_addr.sin_port = htons(PORT);
+
+    // Bind the socket to the specified address and port
+    if (bind(server_socket, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
+        perror("Bind failed");
         exit(EXIT_FAILURE);
     }
-    address.sin_family = AF_INET;
-    address.sin_addr.s_addr = INADDR_ANY;
-    address.sin_port = htons(PORT);
- 
-    // Forcefully attaching socket to the port 8080
-    if (bind(server_fd, (struct sockaddr*)&address,
-             sizeof(address))
-        < 0) {
-        perror("bind failed");
+
+    // Listen for incoming connections
+    if (listen(server_socket, 3) < 0) {
+        perror("Listen failed");
         exit(EXIT_FAILURE);
     }
-    if (listen(server_fd, 3) < 0) {
-        perror("listen");
+
+    printf("Server listening on port %d...\n", PORT);
+
+    // Accept incoming connection
+    socklen_t addr_len = sizeof(client_addr);
+    if ((client_socket = accept(server_socket, (struct sockaddr *)&client_addr, &addr_len)) < 0) {
+        perror("Accept failed");
         exit(EXIT_FAILURE);
     }
-    if ((new_socket
-         = accept(server_fd, (struct sockaddr*)&address,
-                  &addrlen))
-        < 0) {
-        perror("accept");
-        exit(EXIT_FAILURE);
+
+    printf("Connection accepted from %s:%d\n", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
+
+    while (1) {
+        // Receive data from the client
+        if (recv(client_socket, buffer, BUFFER_SIZE, 0) < 0) {
+            perror("Receive failed");
+            exit(EXIT_FAILURE);
+        }
+
+        printf("Received message from client: %s\n", buffer);
+
+        // Echo back the received message to the client
+        send(client_socket, buffer, strlen(buffer), 0);
+
+        // Clear the buffer
+        memset(buffer, 0, sizeof(buffer));
     }
-    valread = read(new_socket, buffer,
-                   1024 - 1); // subtract 1 for the null
-                              // terminator at the end
-    printf("%s\n", buffer);
-    send(new_socket, hello, strlen(hello), 0);
-    printf("Hello message sent\n");
- 
-    // closing the connected socket
-    close(new_socket);
-    // closing the listening socket
-    close(server_fd);
+
+    // Close sockets
+    close(client_socket);
+    close(server_socket);
+
     return 0;
 }
-
-
-
