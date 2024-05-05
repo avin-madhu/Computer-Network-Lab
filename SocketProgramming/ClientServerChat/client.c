@@ -4,55 +4,38 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 
-#define PORT 8080
-#define BUFFER_SIZE 1024
+#define PORT 2001
+#define BUFFER_SIZE 256
 
-void error(const char *msg) {
-    perror(msg);
-    exit(1);
+int main()
+{
+  int sockfd;
+  struct sockaddr_in server_address;
+  char BUFFER[BUFFER_SIZE];
+
+  sockfd = socket(AF_INET, SOCK_STREAM, 0);
+
+  bzero(&server_address, sizeof(server_address));
+  server_address.sin_family = AF_INET;
+  server_address.sin_port = htons(PORT);
+  server_address.sin_addr.s_addr = INADDR_ANY;
+
+  connect(sockfd, (struct sockaddr*)&server_address, sizeof(server_address))!=0;
+  
+
+  while(1)
+    {
+      printf("client: ");
+      fgets(BUFFER, BUFFER_SIZE, stdin);
+      write(sockfd, BUFFER, BUFFER_SIZE);
+
+
+      bzero(BUFFER, BUFFER_SIZE);
+      read(sockfd, BUFFER, BUFFER_SIZE);
+      printf("Server: %s", BUFFER);
+        
+    }
+
+  close(sockfd);
+  return 0;
 }
-
-int main() {
-    int sockfd;
-    struct sockaddr_in server_addr;
-    char buffer[BUFFER_SIZE];
-
-    // Create socket
-    sockfd = socket(AF_INET, SOCK_STREAM, 0);
-    if (sockfd == -1) {
-        error("Error opening socket");
-    }
-
-    // Initialize server address
-    bzero(&server_addr, sizeof(server_addr));
-    server_addr.sin_family = AF_INET;
-    server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
-    server_addr.sin_port = htons(PORT);
-
-    // Connect to server
-    if (connect(sockfd, (struct sockaddr *)&server_addr, sizeof(server_addr)) != 0) {
-        error("Error connecting to server");
-    }
-
-    while (1) {
-        // Send message to server
-        printf("Client: ");
-        fgets(buffer, sizeof(buffer), stdin);
-        write(sockfd, buffer, strlen(buffer));
-
-        // Receive message from server
-        bzero(buffer, BUFFER_SIZE);
-        read(sockfd, buffer, sizeof(buffer));
-        printf("Server: %s\n", buffer);
-
-        // Exit loop if server sends "exit"
-        if (strncmp(buffer, "exit", 4) == 0) {
-            break;
-        }
-    }
-
-    // Close the socket
-    close(sockfd);
-    return 0;
-}
-
