@@ -13,7 +13,7 @@ COMPUTER NETWORK LAB (CS332) LAB KTU 2023
 | 1 | Basic UDP Connection |  -->  [Server Code](SocketProgramming/udp/server.c)    -->   [Client Code](SocketProgramming/udp/client.c)        |
 | 2 | Factorial of a number  |   --> [Server code](SocketProgramming/udp/fact/server.c) --> [Client code](SocketProgramming/udp/fact/client.c)         |
 
-[Sliding Window Protocols ](SocketProgramming/ClientServerChat)
+[Sliding Window Protocols ](SocketProgramming/swp)
 
 |SI NO:  | Protocols |                  Code       |
 |-----------------|-----------------|-----------------|
