@@ -18,6 +18,8 @@
 
 ## Sliding Window Protocols
 
+* Quick Notes on Sliding Window:  [Link](SocketProgramming/swp/BasicNotes.md)
+
 | SI NO | Protocol        | Server Code                                         | Client Code                                         |
 |-------|-----------------|-----------------------------------------------------|-----------------------------------------------------|
 | 1     | Stop and Wait protocol  | [Server Code](SocketProgramming/swp/stopandwait/server.c) | [Client Code](SocketProgramming/swp/stopandwait/client.c)  |
