@@ -10,7 +10,7 @@
   
 <img style="height:300px;width:450px" src="https://www.geeksforgeeks.org/wp-content/uploads/Sliding_SET_2-1.jpg">
 
-  * Here multiple packets are sent from the reciver and the reciver sent a single acknowledgment for all of them.
+  * Here multiple packets are sent to the reciver by the sender and the reciver sent a single acknowledgment for all of them.
   * It is efficient than Stop and wait but the problem is the reciver window size is 1.
 
     That is if `[1] [2] [3]` are sent from the sender in order and `[1]` is lost, even if `[2]` and `[3]` reached the reciver the reciver won't accept it as it is waiting for the `[1]`
