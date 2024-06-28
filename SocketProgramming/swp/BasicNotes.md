@@ -14,7 +14,7 @@
   * It is efficient than Stop and wait but the problem is the reciver window size is 1.
 
     Let's say frames `[1] [2] [3]` are sent from the sender in order and `[1]` is lost, 
-then in that case even if `[2]` and `[3]` reached the reciver the reciver won't accept it as it is waiting for the `[1]`
+then in that case even if `[2]` and `[3]` reached the reciever, the reciever won't accept it as it is waiting for the `[1]`
     hence it has to recent all the elements again from `[1]` that is `[1] [2] [3]`.
     
   * A major disadvantage of this is obviously excessive retransmission of packets.
