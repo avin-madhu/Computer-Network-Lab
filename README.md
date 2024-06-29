@@ -30,5 +30,5 @@
 
 | SI NO | Protocol        | Program Implementation| 
 |-------|-----------------|-----------------------------------------------------|
-| 1     | Leaky Bucket Algorithm | [Source Code](SocketProgramming/other/leakybucket.c) | 
+| 1     | Leaky Bucket Algorithm | [Source Code](other/leakybucket.c) | 
 
