@@ -26,5 +26,9 @@
 | 2     | Go Back N protocol  | [Server code](SocketProgramming/swp/gobackn/server.c) | [Client code](SocketProgramming/swp/gobackn/client.c)   |
 | 3     | Selective Repeat protocol| [Server code](SocketProgramming/swp/selectiverepeat/server.c) | [Client code](SocketProgramming/swp/selectiverepeat/client.c) |
 
+## Other Algorithms
 
+| SI NO | Protocol        | Program Implementation| 
+|-------|-----------------|-----------------------------------------------------|
+| 1     | Leaky Bucket Algorithm | [Source Code](SocketProgramming/other/leakybucket.c) | 
 
