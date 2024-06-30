@@ -28,7 +28,7 @@
 
 | SI NO | File Transfer     | Server Code                                         | Client Code                                         |
 |-------|-----------------|-----------------------------------------------------|-----------------------------------------------------|
-| 1     | Stop and Wait protocol  | [Server Code](SocketProgramming/filetransfer/server.c) | [Client Code](SocketProgramming/filetransfer/client.c)  |
+| 1     | File Transfer Protocol  | [Server Code](SocketProgramming/filetransfer/server.c) | [Client Code](SocketProgramming/filetransfer/client.c)  |
 
 ## Other Algorithms
 
