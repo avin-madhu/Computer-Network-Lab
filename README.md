@@ -35,4 +35,5 @@
 | SI NO | Protocol        | Program Implementation| 
 |-------|-----------------|-----------------------------------------------------|
 | 1     | Leaky Bucket Algorithm | [Source Code](other/leakybucket.c) | 
+| 2     | Distance Vector Routing Algorithm | [source Code](other/dvr.c) |
 
