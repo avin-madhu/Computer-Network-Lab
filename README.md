@@ -26,6 +26,10 @@
 | 2     | Go Back N protocol  | [Server code](SocketProgramming/swp/gobackn/server.c) | [Client code](SocketProgramming/swp/gobackn/client.c)   |
 | 3     | Selective Repeat protocol| [Server code](SocketProgramming/swp/selectiverepeat/server.c) | [Client code](SocketProgramming/swp/selectiverepeat/client.c) |
 
+| SI NO | File Transfer     | Server Code                                         | Client Code                                         |
+|-------|-----------------|-----------------------------------------------------|-----------------------------------------------------|
+| 1     | Stop and Wait protocol  | [Server Code](SocketProgramming/filetransfer/server.c) | [Client Code](SocketProgramming/filetransfer/client.c)  |
+
 ## Other Algorithms
 
 | SI NO | Protocol        | Program Implementation| 
