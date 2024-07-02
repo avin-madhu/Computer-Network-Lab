@@ -31,10 +31,11 @@ int main()
   &server_address, sizeof(server_address));
 
   // listen 
-  listen(sockfd, 5)!=0
-    
-  socklen_t addr_size = sizeof(client_address);
+  listen(sockfd, 5);
   
+
+  socklen_t addr_size = sizeof(client_address);
+
   int connfd = accept(sockfd, (struct sockaddr*) &client_address, &addr_size);
 
   while(1)
