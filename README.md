@@ -30,6 +30,10 @@
 |-------|-----------------|-----------------------------------------------------|-----------------------------------------------------|
 | 1     | File Transfer Protocol  | [Server Code](SocketProgramming/filetransfer/server.c) | [Client Code](SocketProgramming/filetransfer/client.c)  |
 
+| SI NO | Time Server    | Server Code                                         | Client Code                                         |
+|-------|-----------------|-----------------------------------------------------|-----------------------------------------------------|
+| 1     | Time Server Application | [Server Code](SocketProgramming/timeserver/server.c) | [Client Code](SocketProgramming/timeserver/client.c)  |
+
 ## Other Algorithms
 
 | SI NO | Protocol        | Program Implementation| 
