@@ -9,7 +9,6 @@ struct routers
 
 void readCostMatrix()
 {
-  int i,j;
   printf("\nEnter the cost Matrix: \n\n");
 
   for(int i = 0;i<n;i++)
@@ -27,7 +26,7 @@ void readCostMatrix()
 
 void calc_routing_table()
 {
-  int i,j,k;
+ 
   for(int i = 0;i<n;i++)
     {
       for(int j=0;j<n;j++)
