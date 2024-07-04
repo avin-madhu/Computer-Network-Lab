@@ -20,7 +20,7 @@ int main()
   server_address.sin_port = htons(PORT);
   server_address.sin_addr.s_addr = INADDR_ANY;
 
-  connect(sockfd, (struct sockaddr*)&server_address, sizeof(server_address))!=0;
+  connect(sockfd, (struct sockaddr*)&server_address, sizeof(server_address));
   
 
   while(1)
