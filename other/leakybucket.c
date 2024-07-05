@@ -10,7 +10,7 @@ int main()
   scanf("%d %d", &output, &number_of_inputs);
   while (number_of_inputs>=0)
     {
-       input = (rand() % (20-1)) + 1 ;// random number between 1 and 100
+       input = (rand() % (20-1)) + 1 ;// random number between 1 and 20
        int remaining_space = bucket_size - stored;
        if(input < (remaining_space))
        {
