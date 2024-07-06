@@ -17,11 +17,6 @@ int main()
   server_address.sin_family = AF_INET;
   server_address.sin_port = htons(port);
   server_address.sin_addr.s_addr = INADDR_ANY;
-
-  if(bind(sockfd, (struct sockaddr*) &server_address, sizeof(server_address))==-1)
-  {
-    perror("bind");
-  }
   
   int connfd = connect(sockfd, (struct sockaddr*) &server_address, sizeof(server_address));
   
