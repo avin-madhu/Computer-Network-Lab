@@ -17,7 +17,11 @@ void readCostMatrix()
         {
           scanf("%d", &cost_matrix[i][j]);
           cost_matrix[i][i] = 0;
-
+         // setting a large value to indicate that there is no direct connection 
+          if(cost_matrix[i][j] < 0)
+          {
+            cost_matrix[i][j] = 10000;
+          }
           node[i].distance[j] = cost_matrix[i][j];
           node[i].adjnode[j] = j;
         }
