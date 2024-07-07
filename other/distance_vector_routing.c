@@ -13,10 +13,10 @@ void readCostMatrix()
 
   for(int i = 0;i<n;i++)
     {
+      cost_matrix[i][i] = 0;
       for(int j=0;j<n;j++)
         {
           scanf("%d", &cost_matrix[i][j]);
-          cost_matrix[i][i] = 0;
          // setting a large value to indicate that there is no direct connection 
           if(cost_matrix[i][j] < 0)
           {
@@ -39,7 +39,7 @@ void calc_routing_table()
             {
               if (node[i].distance[j] > cost_matrix[i][k] + node[k].distance[j])
               {
-                node[i].distance[j] = node[i].distance[k] + node[k].distance[j];
+                node[i].distance[j] =  cost_matrix[i][k] + node[k].distance[j];
                 node[i].adjnode[j] = k;
               }
             }
