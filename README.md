@@ -15,6 +15,7 @@
 |-------|-------------------------|-----------------------------------------------------|-----------------------------------------------------|
 | 1     | Basic UDP Connection    |  [Server Code](udp/Basic_connection/server.c)     | [Client Code](udp/Basic_connection/client.c)    |
 | 2     | Factorial of a Number   |  [Server code](udp/factorial/server.c) | [Client code](udp/factorial/client.c)    |
+| 3     | Prime Number Check  |  [Server code](udp/prime_number/server.c) | [Client code](udp/prime_number/client.c)    |
 
 ## Sliding Window Protocols
 
