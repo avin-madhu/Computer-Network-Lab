@@ -27,8 +27,8 @@ int main()
   {
     perror("Listen");
   }
-  socklen_t addr_size = sizeof(server_address);
-  newsockfd = accept(sockfd, (struct sockaddr*) &server_address,&addr_size);
+  socklen_t addr_size = sizeof(client_address);
+  newsockfd = accept(sockfd, (struct sockaddr*) &client_address,&addr_size);
 
   printf("Enter the file name: ");
   scanf("%s", filename);
